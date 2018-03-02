@@ -1,0 +1,61 @@
+.nav {
+  height: 35px;
+  background-color: rgba(83, 181, 182, 0.6);
+  transition: all 0.3s;
+}
+
+.nav:hover {
+  background-color: rgba(83, 181, 182, 1);
+  transition: all 0.3s;
+}
+
+.nav ul {
+  list-style-type: none;
+}
+
+.nav__sec a {
+  color: black;
+  height: 35px;
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s;
+
+}
+
+.nav__sec a:hover {
+  background-color: rgb(83, 112, 114);
+  transition: all 0.3s;
+}
+
+.nav__right a {
+  float: right;
+  padding-right: 15px;
+  flex-direction: row;
+}
+.nav__left a {
+  float: left;
+  padding-left: 15px;
+}
+
+.resp_icon {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  
+}
+
+@media only screen and (max-width: 500px) {
+  .nav {
+    height: 25px;
+    transition: height 0.3s;
+  }
+
+  .nav__sec a {
+    font-size: 18px;
+    height: 25px;
+    padding: 0 10px 0 10px;
+    transition: all 0.3s;
+  }
+}
