@@ -1,61 +1,119 @@
+/*
+.nav is the navbar container
+.nav__sec is both .nav__left and nav__right
+.nav__left represents the left side of the navbar
+.nav__right represents the right side of the navbar
+.resp_icon represents the &#9776; symbol's span
+*/
+/*  Transitions
+.nav bc from 0.6 to 1
+.nav bc from 1 to 0.6
+
+.nav__sec a bc from default to color
+.nav__sec a bc from color to default
+
+.nav__right ul height from auto to 0
+.nav__right ul height from 0 to auto
+*/
 .nav {
-  height: 35px;
+  top: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+  position: absolute;
   background-color: rgba(83, 181, 182, 0.6);
-  transition: all 0.3s;
+  transition: background-color .3s;
 }
 
 .nav:hover {
   background-color: rgba(83, 181, 182, 1);
-  transition: all 0.3s;
+  transition: background-color .3s;
 }
 
-.nav ul {
-  list-style-type: none;
+.nav__sec {
+  display: flex;
 }
 
 .nav__sec a {
   color: black;
   height: 35px;
   display: flex;
+  padding: 0 15px;
+  flex-direction: row;
   font-size: 20px;
   align-items: center;
   text-decoration: none;
-  transition: all 0.3s;
-
+  transition: background-color .3s;
 }
 
 .nav__sec a:hover {
   background-color: rgb(83, 112, 114);
-  transition: all 0.3s;
+  transition: background-color .3s;
 }
 
-.nav__right a {
-  float: right;
-  padding-right: 15px;
-  flex-direction: row;
+.nav__sec ul {
+  list-style-type: none;
+  overflow: hidden;
+  display: flex;
 }
-.nav__left a {
+
+.nav__left {
   float: left;
-  padding-left: 15px;
+}
+
+.nav__right {
+  float: right;
 }
 
 .resp_icon {
-  width: 0;
-  height: 0;
-  visibility: hidden;
-  
+  cursor: pointer;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
 }
 
 @media only screen and (max-width: 500px) {
-  .nav {
-    height: 25px;
-    transition: height 0.3s;
+  .resp_icon {
+    display: flex;
+    float: right;
+    margin-top: -35px;
+    transform: rotate(90deg);
+    transition: all .3s;
   }
 
-  .nav__sec a {
-    font-size: 18px;
-    height: 25px;
-    padding: 0 10px 0 10px;
-    transition: all 0.3s;
+  .resp_icon:not(.active) {
+    transform: rotate(0deg);
+    transition: all .3s;
   }
+
+  .nav__right ul {
+    height: 105px;
+    align-items: left;
+    flex-direction: column;
+    transition: height .3s;
+  }
+
+  .nav__right ul:not(.active) {
+    height: 0;
+    transition: height .3s;
+  }
+
+  .nav__sec li {
+    width: 100%;
+  }
+
+  .nav__right {
+    display: block;
+    width: 100%;
+  }
+
+  .nav__right a {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+  }
+
 }
